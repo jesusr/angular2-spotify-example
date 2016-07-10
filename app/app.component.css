@@ -1,20 +1,20 @@
 .demo-layout-transparent {
+
+}
+
+.mdl-layout__header.mdl-layout__header--transparent {
     background: url('../assets/img/turntable-banner-sm.jpg') center / cover;
     height: 250px;
     opacity: 0.8;
 }
+
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
-    color: white;
-    opacity: 0.6;
+    color: rgba(255,255,255,.6);
 }
 
 .mdl-layout__drawer .mdl-layout-title {
     font-size: 16px;
-}
-
-.mdl-layout__content {
-    /*margin-top: 186px;*/
 }
 
 .page-content {

@@ -14,4 +14,11 @@
 
 .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
     color: rgba(0, 0, 0, .6);
+    opacity: .8;
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+    color: rgba(0,0,0,.6);
 }
