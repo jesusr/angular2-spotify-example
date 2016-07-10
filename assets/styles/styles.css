@@ -1,0 +1,10 @@
+
+.mdl-layout__drawer-button {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    opacity: 0.6;
+}
+
+.mdl-layout__drawer-button i {
+    line-height: 48px;
+}

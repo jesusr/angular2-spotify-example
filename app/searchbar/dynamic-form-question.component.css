@@ -1,0 +1,17 @@
+.ng-pristine ~ .errorMessage {
+    display: none;
+}
+
+.ows-formgroup {
+    background-color: #B9B9B9;
+    padding-bottom: 0;
+}
+
+.mdl-textfield__label:after {
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+    color: rgba(0, 0, 0, .6);
+}
