@@ -1,4 +1,3 @@
-import pop = require("core-js/fn/array/pop");
 /**
  * Created by natete on 11/7/16.
  */
