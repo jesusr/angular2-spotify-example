@@ -3,7 +3,7 @@
 }
 
 .mdl-layout__header.mdl-layout__header--transparent {
-    background: url('../assets/img/turntable-banner-sm.jpg') center / cover;
+    background: url('../../assets/img/turntable-banner-sm.jpg') center / cover;
     height: 250px;
     opacity: 0.8;
 }

@@ -1,0 +1,5 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="searchbar-form mdl-grid">
+    <div *ngFor="let question of questions" [ngClass]="{'mdl-cell mdl-cell--8-col': question.controlType === 'textbox', 'mdl-cell mdl-cell--4-col': question.controlType === 'dropdown'}">
+        <df-question [question]="question" [form]="form"></df-question>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+<div mdl [formGroup]="form">
+    <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield floating-label ows-formgroup">-->
+        <div [ngSwitch]="question.controlType">
+            <!-- Textbox case -->
+            <div *ngSwitchCase="'textbox'" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ows-formgroup">
+                <input [formControlName]="question.key"
+                       [id]="question.key" [type]="question.type" class="mdl-textfield__input">
+                <label [attr.for]="question.key" class="mdl-textfield__label">{{question.label}}</label>
+            </div>
+
+            <!-- Dropdown case -->
+            <div *ngSwitchCase="'dropdown'" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label ows-formgroup">
+                <select [id]="question.key" class="mdl-selectfield__select" [formControlName]="question.key">
+                    <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+                </select>
+                <label [attr.for]="question.key" class="mdl-selectfield__label">{{question.label}}</label>
+            </div>
+            <div class="errorMessage" *ngIf="!isValid ">{{question.label}} is required</div>
+        </div>
+    <!--</div>-->
+</div>
+
+
+<!--<select class="mdl-select__input" id="professsion" name="professsion">-->
+    <!--<option value=""></option>-->
+    <!--<option value="option1">option 1</option>-->
+    <!--<option value="option2">option 2</option>-->
+    <!--<option value="option3">option 3</option>-->
+    <!--<option value="option4">option 4</option>-->
+    <!--<option value="option5">option 5</option>-->
+<!--</select>-->
+<!--<label class="mdl-select__label" for="professsion">Profession</label>-->

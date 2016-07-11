@@ -1,0 +1,29 @@
+.mdl-textfield__input,
+.mdl-selectfield__select {
+  color: rgba(0, 0, 0, 0.6); }
+
+.ows-formgroup {
+  background-color: #B9B9B9;
+  padding-bottom: 0; }
+
+.mdl-textfield__label:after,
+.mdl-selectfield__label:after {
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.mdl-textfield {
+  width: 100%; }
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-selectfield__label,
+.mdl-selectfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-selectfield--floating-label.is-focused .mdl-selectfield__label {
+  color: rgba(0, 0, 0, 0.6);
+  opacity: .8; }
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+  color: rgba(0, 0, 0, 0.6); }
+
+/*# sourceMappingURL=dynamic-form-question.component.css.map */

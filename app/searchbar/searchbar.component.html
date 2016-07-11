@@ -1,4 +1,12 @@
-<dynamic-form [questions]="questions"></dynamic-form>
+<!--<div class="mdl-grid">-->
+    <dynamic-form [questions]="questions" (formSubmitted)="onFormSubmitted($event)"></dynamic-form>
+    <!--<div class="mdl-cell mdl-cell&#45;&#45;4-col">-->
+        <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect">-->
+            <!--<i class="material-icons">add</i>-->
+        <!--</button>-->
+    <!--</div>-->
+<!--</div>-->
+
 
 
 <!--<form [formGroup]="form">-->

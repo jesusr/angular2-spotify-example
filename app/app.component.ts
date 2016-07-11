@@ -3,21 +3,21 @@
  */
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SearchBarComponent } from "./searchbar/searchbar.component";
-import {MDL} from "./shared/MaterialDesignLiteUpgradeElement";
+import {PreviewsListComponent} from "./previews/previews-list.component";
+import {HeaderComponent} from "./header/header.component";
 
 @Component({
     selector: 'ows-app',
-    templateUrl: 'app/app.component.html',
-    styleUrls: [
-        'app/app.component.css'
-    ],
+    template: `
+        <ows-header></ows-header>
+        <router-outlet></router-outlet>
+    `,
     directives: [
         ROUTER_DIRECTIVES,
-        SearchBarComponent,
-        MDL
+        HeaderComponent
     ],
     precompile: [
+        PreviewsListComponent
     ]
 })
 export class AppComponent  {
