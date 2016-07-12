@@ -9,6 +9,7 @@ export class SpotifyPreview {
     cover: string;
     preview: string;
     popularity: number;
+    isPlaying: boolean;
 
     constructor(title: string, album: string, artists: string, cover: string, preview: string, popularity: number) {
         this.title = title;
@@ -17,6 +18,7 @@ export class SpotifyPreview {
         this.cover = cover;
         this.preview = preview;
         this.popularity = popularity;
+        this.isPlaying = false;
     }
 
     static getSpotifyPreviewFromSpotifyResponse(spotifyResponse: any) {

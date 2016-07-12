@@ -1,0 +1,25 @@
+<div class="mdl-grid">
+    <div *ngFor="let preview of previews" class="mdl-cell mdl-cell--4-col">
+        <div class="demo-card-image mdl-card mdl-shadow--2dp"
+             [ngStyle]="{'background-image':'url(' + preview.cover + ')'}">
+            <div class="mdl-card__title mdl-card--expand"></div>
+            <div class="mdl-card__actions">
+                <div class="preview-info-wrapper">
+                    <span class="demo-card-image__filename">{{preview.artists}}</span>
+                    <div class="demo-card-image__filename">{{preview.title}}</div>
+                </div>
+                <button (click)="play(preview)"
+                        *ngIf="!preview.isPlaying"
+                        class="play-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">play_arrow</i>
+                </button>
+                <button (click)="stop(preview)"
+                        *ngIf="preview.isPlaying"
+                        class="play-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">pause</i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

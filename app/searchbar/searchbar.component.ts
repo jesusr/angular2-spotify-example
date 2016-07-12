@@ -7,8 +7,7 @@ import {QuestionBase} from "../forms/question-base";
 import {TextboxQuestion} from "../forms/question-textbox";
 import {DynamicFormComponent} from "../forms/dynamic-form.component";
 import {DropdownQuestion} from "../forms/question-dropdown";
-import {SearchbarService} from "./searchbar.service";
-import {SpotifyPreview} from "../previews/preview.implementation";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'ows-searchbar',
@@ -18,17 +17,15 @@ import {SpotifyPreview} from "../previews/preview.implementation";
         DynamicFormComponent
     ],
     providers: [
-        SearchbarService
     ]
 })
 export class SearchBarComponent {
     questions: QuestionBase<any>[];
-    previews: SpotifyPreview[];
-    errorMessage: string;
-    private _searchbarService: SearchbarService;
 
-    constructor(searchbarService: SearchbarService) {
-        this._searchbarService = searchbarService;
+    private _router: Router;
+
+    constructor(router: Router) {
+        this._router = router;
 
         this.questions = [
             new TextboxQuestion({
@@ -54,10 +51,6 @@ export class SearchBarComponent {
     }
 
     onFormSubmitted(event) {
-        this._searchbarService.getPreviews(event.search, event.select)
-            .subscribe(
-                products => this.previews = products,
-                error => this.errorMessage = <any>error
-            );
+        this._router.navigate(['/previews'], { queryParams: { q: event.search, type: event.select }});
     }
 }

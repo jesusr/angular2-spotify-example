@@ -39,33 +39,3 @@ export class SearchbarService {
         return responseObject.tracks.items.map((item: any) => SpotifyPreview.getSpotifyPreviewFromSpotifyResponse(item));
     }
 }
-
-/*
- *
- getProducts(): Observable<IProduct[]> {
- return this._http
- .get(this._productsUrl)
- .map((response: Response) => <IProduct[]>response.json())
- //.do(data => console.info('All ' + JSON.stringify(data)))
- .catch(this.handleError);
- }
-
- getProduct(id: number): Observable<IProduct> {
- let params = new URLSearchParams();
- params.set('productId', id.toString());
-
- return this._http
- .get(this._productsUrl, {search: params})
- .map((response: Response) => <IProduct>response.json()[0])
- .catch(this.handleError);
- }
-
- private handleError (error: any) {
- // In a real world app, we might use a remote logging infrastructure
- // We'd also dig deeper into the error to get a better message
- let errMsg = (error.message) ? error.message :
- error.status ? `${error.status} - ${error.statusText}` : 'Server error';
- console.error(errMsg); // log to console instead
- return Observable.throw(errMsg);
- }
- * */

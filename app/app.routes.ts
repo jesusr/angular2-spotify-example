@@ -3,13 +3,18 @@
  */
 import { provideRouter, RouterConfig } from '@angular/router';
 import {PreviewsListComponent} from "./previews/previews-list.component";
+import {LandingComponent} from "./landing/landing.component";
 
 
 export const routes: RouterConfig = [
     {
         path: '',
-        redirectTo: '/previews',
+        redirectTo: '/landing',
         pathMatch: 'full'
+    },
+    {
+        path: 'landing',
+        component: LandingComponent
     },
     {
         path: 'previews',

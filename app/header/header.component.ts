@@ -8,9 +8,7 @@ import {MDL} from "../shared/MaterialDesignLiteUpgradeElement";
 @Component({
     selector: 'ows-header',
     templateUrl: 'app/header/header.component.html',
-    styleUrls: [
-        'app/header/header.component.css'
-    ],
+    styleUrls: ['app/header/header.component.css'],
     directives: [
         SearchBarComponent,
         MDL
