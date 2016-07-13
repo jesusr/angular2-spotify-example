@@ -2,8 +2,8 @@
  * Created by natete on 10/7/16.
  */
 import { provideRouter, RouterConfig } from '@angular/router';
-import {PreviewsListComponent} from "./previews/previews-list.component";
-import {LandingComponent} from "./landing/landing.component";
+import { TracksListComponent } from "./tracks/tracks-list.component";
+import { LandingComponent } from "./landing/landing.component";
 
 
 export const routes: RouterConfig = [
@@ -17,8 +17,8 @@ export const routes: RouterConfig = [
         component: LandingComponent
     },
     {
-        path: 'previews',
-        component: PreviewsListComponent
+        path: 'tracks',
+        component: TracksListComponent
     }
 ];
 

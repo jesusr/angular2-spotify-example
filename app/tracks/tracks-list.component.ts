@@ -4,22 +4,22 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import {SearchbarService} from "../searchbar/searchbar.service";
-import {SpotifyPreview} from "./preview.implementation";
+import {Track} from "./track";
 
 
 @Component({
-    templateUrl: 'app/previews/previews-list.component.html',
+    templateUrl: 'app/tracks/tracks-list.component.html',
     providers: [
         SearchbarService
     ],
-    styleUrls: ['app/previews/previews-list.component.css']
+    styleUrls: ['app/tracks/tracks-list.component.css']
 })
-export class PreviewsListComponent implements OnInit, OnDestroy {
+export class TracksListComponent implements OnInit, OnDestroy {
     private _sub: any;
     private _query: string;
     private _type: string;
 
-    previews: SpotifyPreview[];
+    tracks: Track[];
     errorMessage: string;
     private _isPlaying: boolean;
     private _audio: any;
@@ -36,27 +36,23 @@ export class PreviewsListComponent implements OnInit, OnDestroy {
             .subscribe(params => {
                 this._query = params['q'];
                 this._type = params['type'];
-                this._searchbarService.getPreviews(this._query, this._type)
+                this._searchbarService.findTracks(this._query)
                     .subscribe(
-                        previews => this.previews = previews,
+                        tracks => this.tracks = tracks,
                         error => this.errorMessage = <any>error
                     );
             });
-            
-            //     this..getHeroes()
-            //         .then(heroes => this.heroes = heroes);
-            // });
     }
 
     ngOnDestroy(): void {
         this._sub.unsubscribe();
     }
 
-    play(preview: SpotifyPreview) {
+    play(preview: Track) {
         if (this._isPlaying) {
             this._audio.pause();
             this._audio = undefined;
-            this.previews.forEach((preview: SpotifyPreview) => preview.isPlaying = false);
+            this.tracks.forEach((preview: Track) => preview.isPlaying = false);
         }
         this._audio = new Audio();
         this._audio.src = preview.preview;
@@ -66,7 +62,7 @@ export class PreviewsListComponent implements OnInit, OnDestroy {
         this._isPlaying = true;
     }
     
-    stop(preview: SpotifyPreview) {
+    stop(preview: Track) {
         if(this._audio !== undefined) {
             this._audio.pause();
             this._audio = undefined;

@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import {SpotifyPreview} from "../previews/preview.implementation";
+import { Track } from "../tracks/track";
 
 @Injectable()
 export class SearchbarService {
@@ -15,14 +15,14 @@ export class SearchbarService {
 
     constructor(private _http: Http) {}
 
-    getPreviews(q: string, type: string): Observable<SpotifyPreview[]> {
+    findTracks(q: string): Observable<Track[]> {
         let params = new URLSearchParams();
         params.set('q', q);
-        params.set('type', type);
+        params.set('type', 'track');
 
         return this._http
             .get(this._BASE_URL, { search: params })
-            .map((response: Response) => this.getSpotifyPreviews(response.json()))
+            .map((response: Response) => this.getTracks(response.json()))
             .catch(this.handleError);
     }
 
@@ -35,7 +35,7 @@ export class SearchbarService {
         return Observable.throw(errMsg);
     }
 
-    private getSpotifyPreviews(responseObject: any): SpotifyPreview[] {
-        return responseObject.tracks.items.map((item: any) => SpotifyPreview.getSpotifyPreviewFromSpotifyResponse(item));
+    private getTracks(responseObject: any): Track[] {
+        return responseObject.tracks.items.map((item: any) => Track.getTrackFromResponse(item));
     }
 }

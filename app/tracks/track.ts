@@ -2,7 +2,7 @@
  * Created by natete on 11/7/16.
  */
 
-export class SpotifyPreview {
+export class Track {
     title: string;
     album: string;
     artists: string;
@@ -21,7 +21,7 @@ export class SpotifyPreview {
         this.isPlaying = false;
     }
 
-    static getSpotifyPreviewFromSpotifyResponse(spotifyResponse: any) {
+    static getTrackFromResponse(spotifyResponse: any) {
         let title = spotifyResponse.name;
         let album = spotifyResponse.album.name;
         let artists = spotifyResponse.artists.map((artist: any) => artist.name).join(', ');
@@ -29,6 +29,6 @@ export class SpotifyPreview {
         let preview = spotifyResponse.preview_url;
         let popularity = spotifyResponse.popularity;
 
-        return new SpotifyPreview(title, album, artists, cover, preview, popularity);
+        return new Track(title, album, artists, cover, preview, popularity);
     }
 }

@@ -51,6 +51,14 @@ export class SearchBarComponent {
     }
 
     onFormSubmitted(event) {
-        this._router.navigate(['/previews'], { queryParams: { q: event.search, type: event.select }});
+        switch (event.select) {
+            case 'track':
+                this._router.navigate(['/tracks'], { queryParams: { q: event.search }});
+                break;
+            default:
+                this._router.navigate(['/tracks'], { queryParams: { q: event.search }});
+                break;
+        }
+        
     }
 }

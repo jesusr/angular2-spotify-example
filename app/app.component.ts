@@ -3,7 +3,7 @@
  */
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import {PreviewsListComponent} from "./previews/previews-list.component";
+import {TracksListComponent} from "./tracks/tracks-list.component";
 import {HeaderComponent} from "./header/header.component";
 import {LandingComponent} from "./landing/landing.component";
 
@@ -29,7 +29,7 @@ import {LandingComponent} from "./landing/landing.component";
         HeaderComponent
     ],
     precompile: [
-        PreviewsListComponent,
+        TracksListComponent,
         LandingComponent
     ]
 })
