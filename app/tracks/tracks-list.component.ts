@@ -17,7 +17,6 @@ import {Track} from "./track";
 export class TracksListComponent implements OnInit, OnDestroy {
     private _sub: any;
     private _query: string;
-    private _type: string;
 
     tracks: Track[];
     errorMessage: string;
@@ -35,7 +34,6 @@ export class TracksListComponent implements OnInit, OnDestroy {
             .queryParams
             .subscribe(params => {
                 this._query = params['q'];
-                this._type = params['type'];
                 this._searchbarService.findTracks(this._query)
                     .subscribe(
                         tracks => this.tracks = tracks,
@@ -48,26 +46,26 @@ export class TracksListComponent implements OnInit, OnDestroy {
         this._sub.unsubscribe();
     }
 
-    play(preview: Track) {
+    play(track: Track) {
         if (this._isPlaying) {
             this._audio.pause();
             this._audio = undefined;
             this.tracks.forEach((preview: Track) => preview.isPlaying = false);
         }
         this._audio = new Audio();
-        this._audio.src = preview.preview;
+        this._audio.src = track.preview;
         this._audio.load();
         this._audio.play();
-        preview.isPlaying = true;
+        track.isPlaying = true;
         this._isPlaying = true;
     }
     
-    stop(preview: Track) {
+    stop(track: Track) {
         if(this._audio !== undefined) {
             this._audio.pause();
             this._audio = undefined;
         }
         this._isPlaying = false;
-        preview.isPlaying = false;
+        track.isPlaying = false;
     }
 }
