@@ -1,50 +1,22 @@
 /**
  * Created by natete on 10/7/16.
  */
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import {SearchbarService} from "../searchbar/searchbar.service";
+import { Component, Input } from '@angular/core';
 import {Track} from "./track";
 
 
 @Component({
+    selector: 'ows-tracks',
     templateUrl: 'app/tracks/tracks-list.component.html',
-    providers: [
-        SearchbarService
-    ],
     styleUrls: ['app/tracks/tracks-list.component.css']
 })
-export class TracksListComponent implements OnInit, OnDestroy {
-    private _sub: any;
-    private _query: string;
+export class TracksListComponent {
 
-    tracks: Track[];
-    errorMessage: string;
     private _isPlaying: boolean;
     private _audio: any;
+    @Input() tracks: Track[];
     
-    constructor(
-        private _router: Router,
-        private _searchbarService: SearchbarService
-    ){}
-
-    ngOnInit() {
-        this._sub = this._router
-            .routerState
-            .queryParams
-            .subscribe(params => {
-                this._query = params['q'];
-                this._searchbarService.findTracks(this._query)
-                    .subscribe(
-                        tracks => this.tracks = tracks,
-                        error => this.errorMessage = <any>error
-                    );
-            });
-    }
-
-    ngOnDestroy(): void {
-        this._sub.unsubscribe();
-    }
+    constructor(){}
 
     play(track: Track) {
         if (this._isPlaying) {

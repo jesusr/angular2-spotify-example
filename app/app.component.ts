@@ -3,9 +3,10 @@
  */
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import {TracksListComponent} from "./tracks/tracks-list.component";
 import {HeaderComponent} from "./header/header.component";
 import {LandingComponent} from "./landing/landing.component";
+import {TracksComponent} from "./tracks/tracks.component";
+import {ArtistsComponent} from "./artists/artists.component";
 
 @Component({
     selector: 'ows-app',
@@ -29,8 +30,9 @@ import {LandingComponent} from "./landing/landing.component";
         HeaderComponent
     ],
     precompile: [
-        TracksListComponent,
-        LandingComponent
+        TracksComponent,
+        LandingComponent,
+        ArtistsComponent
     ]
 })
 export class AppComponent  {

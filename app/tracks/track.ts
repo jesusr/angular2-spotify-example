@@ -1,7 +1,9 @@
 /**
  * Created by natete on 11/7/16.
  */
-
+import {Injectable} from "@angular/core";
+    
+@Injectable()
 export class Track {
     title: string;
     album: string;

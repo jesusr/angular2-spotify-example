@@ -15,8 +15,6 @@ import {Router} from "@angular/router";
     directives: [
         MDL,
         DynamicFormComponent
-    ],
-    providers: [
     ]
 })
 export class SearchBarComponent {
@@ -54,6 +52,9 @@ export class SearchBarComponent {
         switch (event.select) {
             case 'track':
                 this._router.navigate(['/tracks'], { queryParams: { q: event.search }});
+                break;
+            case 'artist':
+                this._router.navigate(['/artists'], { queryParams: { q: event.search }});
                 break;
             default:
                 this._router.navigate(['/tracks'], { queryParams: { q: event.search }});

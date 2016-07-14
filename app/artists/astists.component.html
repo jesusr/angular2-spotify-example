@@ -1,0 +1,20 @@
+<!--<ows-tracks [tracks]="topTracks"></ows-tracks>-->
+
+<div class="mdl-grid row" *ngFor="let artist of artists">
+    <div class="mdl-grid row">
+        <div class="mdl-cell mdl-cell--4-col artist-image-wrapper">
+            <img [src]="artist.image" class="artist-image">
+        </div>
+        <div class="mdl-cell mdl-cell--8-col">
+            <h3>{{artist.name}}</h3>
+            <div>{{artist.genres}}</div>
+            <div>{{artist.popularity}}</div>
+            <p class="artist-bio">{{artist.bio}}</p>
+        </div>
+    </div>
+    <div class="mdl-grid row">
+        <div class="mdl-cell mdl-cell--12-col">
+            <ows-tracks [tracks]="artist.topTracks"></ows-tracks>
+        </div>
+    </div>
+</div>

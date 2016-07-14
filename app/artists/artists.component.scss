@@ -1,0 +1,23 @@
+.artist-image-wrapper {
+  margin: auto;
+  .artist-image {
+    max-height: 300px;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+}
+
+.mdl-grid.row {
+  width: 100%;
+}
+
+.mdl-cell.mdl-cell--4-col {
+  text-align: center;
+}
+
+.artist-bio {
+  height: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
