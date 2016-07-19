@@ -20,7 +20,7 @@ export class SearchbarService {
     findTracks(q: string): Observable<Track[]> {
         let params = new URLSearchParams();
         params.set('q', q.replace(' ', '+'));
-        params.set('type', 'artist');
+        params.set('type', 'track');
 
         return this._http
             .get(this._SPOTIFY_URL + 'search', { search: params })
